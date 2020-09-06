@@ -129,6 +129,7 @@ class TodoItem extends React.Component {
       </li>
     );
   }
+
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
   }
