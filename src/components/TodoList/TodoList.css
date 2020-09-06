@@ -1,0 +1,23 @@
+.main {
+  position: relative;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.toggle-all {
+  opacity: 0;
+  position: absolute;
+}
+
+.toggle-all-label {
+  position: absolute;
+  left: 16px;
+  top: -37px;
+  opacity: .2;
+}
+
+.toggle-all-label-all {
+  opacity: 1;
+}

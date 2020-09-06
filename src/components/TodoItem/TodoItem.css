@@ -1,0 +1,57 @@
+.todo-item {
+  text-align: center;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-top: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.todo-status-img {
+  margin-right: 5px;
+}
+
+.todo-content {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.todo-remove-btn {
+  border: none;
+  background-color: inherit;
+  color: red;
+  opacity: .2;
+  font-weight: 800;
+  padding: 2px;
+  display: none;
+}
+
+.todo-remove-btn:hover {
+  opacity: .5;
+}
+
+.todo-item:hover .todo-remove-btn {
+  display: block;
+}
+
+.todo-remove-btn:focus {
+  outline: none;
+}
+
+.todo-item-completed > .todo-content {
+  text-decoration: line-through;
+  opacity: .3;
+}
+
+.todo-edit {
+  width: 100%;
+  padding: 0 0 0 40px;
+  border: none;
+  background: inherit;
+  font-size: inherit;
+}
+
+.todo-edit:focus {
+  outline: none;
+}
