@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  border: 1px solid black;
+  border-top: none;
+  padding: 10px;
+}
+
+.footer-item-filter {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.footer-item-filter > * {
+  margin: 0 4px;
+}

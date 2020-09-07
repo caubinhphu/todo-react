@@ -1,14 +1,14 @@
-.Header {
+.header {
   border: 1px solid black;
 }
 
-.Header > input {
+.header > input {
   font-size: 1.5rem;
   padding: 10px 10px 10px 60px;
   border: none;
   background-color: inherit;
 }
 
-.Header > input:focus {
+.header > input:focus {
   outline: none;
 }

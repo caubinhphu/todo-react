@@ -4,30 +4,26 @@ import './App.css';
 
 import TodoList from './TodoList/TodoList';
 import Header from './Header/Header';
-// import Clock from './Clock/Clock';
-// import Counter from './Counter/Counter';
+import Footer from './Footer/Footer';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   showCounter: true,
-    // };
-
     this.state = {
       todoList: [],
+      filterActive: 'all', // all - active - completed
     };
+
+    this.handleClickFilterAll = this.handleClickFilterAll.bind(this);
+    this.handleClickFilterActive = this.handleClickFilterActive.bind(this);
+    this.handleClickFilterCompleted = this.handleClickFilterCompleted.bind(
+      this
+    );
+    this.handleClickClearCompleted = this.handleClickClearCompleted.bind(this);
   }
 
-  // toggleCounter() {
-  //   this.setState({ showCounter: !this.state.showCounter });
-  // }
-
   handleClickItem(item) {
-    // return (event) => {
-    //   console.log(item, event);
-    // };
     const { todoList } = this.state;
     const index = todoList.findIndex((todo) => todo.id === item.id);
     if (index !== -1) {
@@ -97,18 +93,71 @@ class App extends React.Component {
     }
   }
 
+  handleClickFilterAll() {
+    if (this.state.filterActive !== 'all') {
+      this.setState({
+        filterActive: 'all',
+      });
+    }
+  }
+  handleClickFilterActive() {
+    if (this.state.filterActive !== 'active') {
+      this.setState({
+        filterActive: 'active',
+      });
+    }
+  }
+  handleClickFilterCompleted() {
+    if (this.state.filterActive !== 'completed') {
+      this.setState({
+        filterActive: 'completed',
+      });
+    }
+  }
+  handleClickClearCompleted() {
+    const { todoList } = this.state;
+    const newTodoList = todoList.filter((todo) => !todo.isCompleted);
+    this.setState({
+      todoList: newTodoList,
+    });
+  }
+
   render() {
+    const { todoList, filterActive } = this.state;
+    let todoListFilter = [];
+    switch (filterActive) {
+      case 'active':
+        todoListFilter = todoList.filter((todo) => !todo.isCompleted);
+        break;
+      case 'completed':
+        todoListFilter = todoList.filter((todo) => todo.isCompleted);
+        break;
+      default:
+        todoListFilter = todoList;
+        break;
+    }
     return (
-      <div className="App">
+      <div className="app">
+        <h1 className="app-heading">todos</h1>
         <Header onAddNewTodo={(input) => this.handleAddNewTodo(input)} />
         <TodoList
-          todoList={this.state.todoList}
+          todoList={todoListFilter}
           onClickItem={(item) => this.handleClickItem(item)}
           onRemoveItem={(item) => this.handleRemoveItem(item)}
           onToggleAll={() => this.handleToggleAll()}
           onEditItem={(item) => this.handelEditItem(item)}
-          isCompletedAll={this.state.todoList.every((todo) => todo.isCompleted)}
+          isCompletedAll={todoList.every((todo) => todo.isCompleted)}
         />
+        {this.state.todoList.length > 0 && (
+          <Footer
+            leftNum={todoList.filter((todo) => !todo.isCompleted).length}
+            filterActive={filterActive}
+            onClickFilterAll={this.handleClickFilterAll}
+            onClickFilterActive={this.handleClickFilterActive}
+            onClickFilterCompleted={this.handleClickFilterCompleted}
+            onClickClearCompleted={this.handleClickClearCompleted}
+          />
+        )}
       </div>
     );
   }
@@ -123,8 +172,8 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state);
-    console.log(prevState);
+    // console.log(this.state);
+    // console.log(prevState);
     this.updateLocalStorage();
   }
 

@@ -33,7 +33,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="Header">
+      <div className="header">
         <input
           type="text"
           placeholder="Enter new todo"

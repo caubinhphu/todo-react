@@ -13,9 +13,15 @@
 
 .toggle-all-label {
   position: absolute;
-  left: 16px;
-  top: -37px;
+  left: 24px;
+  top: -40px;
   opacity: .2;
+  font-size: 1.5rem;
+  transform: rotate(90deg);
+}
+
+.toggle-all-label::before {
+  content: '❯';
 }
 
 .toggle-all-label-all {

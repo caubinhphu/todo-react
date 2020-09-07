@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import downArrow from '../../assets/images/down-arrow.svg';
 import TodoItem from '../TodoItem/TodoItem';
 
 import './TodoList.css';
@@ -25,7 +24,7 @@ class TodoList extends React.Component {
             })}
             onClick={onToggleAll}
           >
-            <img src={downArrow} alt="toggle-all-img" width="25px" />
+            {/* <img src={downArrow} alt="toggle-all-img" width="25px" /> */}
           </label>
           <input type="checkbox" className="toggle-all" id="toggle-all" />
           <ul className="todo-list">

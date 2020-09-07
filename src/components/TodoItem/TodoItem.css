@@ -8,8 +8,8 @@
   align-items: center;
 }
 
-.todo-status-img {
-  margin-right: 5px;
+.completed-icon {
+  margin-right: 10px;
 }
 
 .todo-content {

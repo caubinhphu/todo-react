@@ -1,0 +1,10 @@
+.button {
+  padding: 2px 5px;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+}
+
+.button-active, .button:hover  {
+  outline: 1px solid black;
+}
