@@ -15,6 +15,7 @@ class App extends React.Component {
       filterActive: 'all', // all - active - completed
     };
 
+    this.handleToggleAll = this.handleToggleAll.bind(this);
     this.handleClickFilterAll = this.handleClickFilterAll.bind(this);
     this.handleClickFilterActive = this.handleClickFilterActive.bind(this);
     this.handleClickFilterCompleted = this.handleClickFilterCompleted.bind(
@@ -144,7 +145,7 @@ class App extends React.Component {
           todoList={todoListFilter}
           onClickItem={(item) => this.handleClickItem(item)}
           onRemoveItem={(item) => this.handleRemoveItem(item)}
-          onToggleAll={() => this.handleToggleAll()}
+          onToggleAll={this.handleToggleAll}
           onEditItem={(item) => this.handelEditItem(item)}
           isCompletedAll={todoList.every((todo) => todo.isCompleted)}
         />

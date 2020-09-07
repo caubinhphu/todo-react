@@ -6,6 +6,7 @@ import './TodoList.css';
 
 class TodoList extends React.Component {
   render() {
+    // console.log('todo list render');
     const {
       todoList,
       isCompletedAll,

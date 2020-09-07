@@ -81,7 +81,7 @@ class TodoItem extends React.Component {
   }
 
   render() {
-    console.log('render: ', this.item.content);
+    // console.log('render: ', this.item.content);
     const { onClickItem, onRemoveItem } = this.props;
     const classes = classNames({
       'todo-item': true,
